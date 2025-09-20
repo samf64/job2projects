@@ -1,5 +1,5 @@
 # Import libraries
-import json  # to load and work with the project database (projects.json)
+import json  # to load and work with the project database (project_list.json)
 from sentence_transformers import SentenceTransformer, util  # for embedding text and computing similarity
 import spacy  # NLP library for extracting keywords
 
@@ -9,7 +9,7 @@ nlp = spacy.load("en_core_web_sm")
 
 # Load the project database from a JSON file
 # This file contains project ideas with tags for matching
-with open("projects.json") as f:
+with open("project_list.json") as f:
     projects = json.load(f)
 
 # Load a sentence transformer model
@@ -18,11 +18,17 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Function to extract keywords from a job description using spaCy
 def extract_keywords(text):
-    doc = nlp(text)  # process the text with spaCy
-    # Only keep alphabetic tokens (ignore punctuation, numbers)
-    keywords = [token.text.lower() for token in doc if token.is_alpha]
-    # Return as a single string (needed for embeddings)
-    return " ".join(keywords)
+    """
+    Extracts keywords from text using spaCy.
+    Only alphabetic tokens are kept (ignores punctuation/numbers).
+    Returns a single string for embedding.
+    """
+    doc = nlp(text)           # process the text with spaCy
+    keywords = []             # create an empty list to store keywords
+    for token in doc:         # loop through each token in the text
+        if token.is_alpha:    # only consider alphabetic tokens
+            keywords.append(token.text.lower())  # add lowercase token to keywords list
+    return " ".join(keywords)  # combine all keywords into a single string
 
 # Function to recommend top projects based on job description
 def recommend_projects(job_description, top_k=3):
@@ -31,7 +37,7 @@ def recommend_projects(job_description, top_k=3):
     # Convert keywords into an embedding vector
     job_embedding = model.encode(job_keywords, convert_to_tensor=True)
 
-    recommendations = []
+    recommendations = []  # list to store similarity scores and project info
     # Compare job description embedding with each project’s tags
     for project in projects:
         # Convert project tags into a string and then into an embedding
