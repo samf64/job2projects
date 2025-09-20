@@ -1,15 +1,22 @@
+#Overcommenting to make sure I learn these concepts :)
+
 # Import libraries
-import json  # to load and work with the project database (project_list.json)
+import json  # to load and work with the project database (projects.json)
 from sentence_transformers import SentenceTransformer, util  # for embedding text and computing similarity
 import spacy  # NLP library for extracting keywords
+import os
 
 # Load spaCy English model
 # en_core_web_sm is a small, fast English model for tokenization, POS tagging, and named entity recognition
 nlp = spacy.load("en_core_web_sm")
 
+# Construct the path to projects.json relative to this script
+# This ensures the file can be found no matter what folder the script is run from
+json_path = os.path.join(os.path.dirname(__file__), "projects.json")
+
 # Load the project database from a JSON file
 # This file contains project ideas with tags for matching
-with open("project_list.json") as f:
+with open(json_path) as f:
     projects = json.load(f)
 
 # Load a sentence transformer model
@@ -23,12 +30,12 @@ def extract_keywords(text):
     Only alphabetic tokens are kept (ignores punctuation/numbers).
     Returns a single string for embedding.
     """
-    doc = nlp(text)           # process the text with spaCy
-    keywords = []             # create an empty list to store keywords
-    for token in doc:         # loop through each token in the text
-        if token.is_alpha:    # only consider alphabetic tokens
-            keywords.append(token.text.lower())  # add lowercase token to keywords list
-    return " ".join(keywords)  # combine all keywords into a single string
+    doc = nlp(text)           
+    keywords = []             
+    for token in doc:         
+        if token.is_alpha:    
+            keywords.append(token.text.lower())  
+    return " ".join(keywords)  
 
 # Function to recommend top projects based on job description
 def recommend_projects(job_description, top_k=3):
@@ -63,3 +70,4 @@ if __name__ == "__main__":
     print("\nTop Project Recommendations:\n")
     for i, proj in enumerate(top_projects, 1):
         print(f"{i}. {proj['title']}: {proj['description']}")
+        print(f"{proj['tags']}")
