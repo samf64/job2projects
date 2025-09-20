@@ -1,1 +1,77 @@
-
+[
+  {
+    "title": "Sentiment Analysis API",
+    "description": "Classify text sentiment and deploy as a web API on AWS.",
+    "tags": ["nlp", "aws", "python", "ml", "fastapi"]
+  },
+  {
+    "title": "Resume Chatbot",
+    "description": "Build a chatbot that answers questions about a resume using NLP and LLM embeddings.",
+    "tags": ["nlp", "python", "llm", "fastapi"]
+  },
+  {
+    "title": "Kubernetes-Deployed Microservice",
+    "description": "Deploy a small ML service on Kubernetes with automated CI/CD.",
+    "tags": ["kubernetes", "docker", "ml", "cloud", "python"]
+  },
+  {
+    "title": "Image Classifier",
+    "description": "Train a CNN on images and deploy it as a web service using FastAPI.",
+    "tags": ["ml", "python", "tensorflow", "fastapi"]
+  },
+  {
+    "title": "AWS Lambda NLP Function",
+    "description": "Serverless NLP processing of text using AWS Lambda and S3.",
+    "tags": ["aws", "nlp", "python", "serverless"]
+  },
+  {
+    "title": "Full Stack Portfolio Website",
+    "description": "Build a personal portfolio with React frontend and FastAPI backend.",
+    "tags": ["fullstack", "react", "python", "fastapi", "frontend"]
+  },
+  {
+    "title": "Automated Data Pipeline",
+    "description": "Ingest, clean, and process data using Python and deploy on AWS.",
+    "tags": ["python", "aws", "etl", "data"]
+  },
+  {
+    "title": "Movie Recommendation System",
+    "description": "Build a collaborative filtering recommendation system and serve via API.",
+    "tags": ["ml", "python", "fastapi", "recommendation"]
+  },
+  {
+    "title": "Text Summarizer",
+    "description": "Create an NLP tool that summarizes long articles using transformers.",
+    "tags": ["nlp", "python", "transformers", "ml"]
+  },
+  {
+    "title": "Cloud Monitoring Dashboard",
+    "description": "Visualize cloud service metrics in a web dashboard with Python and Plotly.",
+    "tags": ["python", "aws", "dashboard", "fullstack"]
+  },
+  {
+    "title": "Object Detection App",
+    "description": "Detect objects in images and video using PyTorch and FastAPI backend.",
+    "tags": ["ml", "python", "pytorch", "fastapi"]
+  },
+  {
+    "title": "Job Skills Extractor",
+    "description": "Parse job descriptions and extract skills using NLP for matching projects.",
+    "tags": ["nlp", "python", "fastapi"]
+  },
+  {
+    "title": "Generative Text Web App",
+    "description": "Deploy a web app that generates text using a small LLM.",
+    "tags": ["llm", "python", "fastapi", "frontend"]
+  },
+  {
+    "title": "Cloud Cost Optimizer",
+    "description": "Analyze AWS usage and suggest cost-saving measures.",
+    "tags": ["aws", "python", "cloud", "ml"]
+  },
+  {
+    "title": "IoT Data Collector",
+    "description": "Collect sensor data from IoT devices and analyze it in the cloud.",
+    "tags": ["iot", "python", "aws", "data"]
+  }
+]
